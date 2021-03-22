@@ -9,7 +9,9 @@ import {
 import { Provider as UrqlProvider, createClient } from 'urql';
 
 import Header from 'components/Header';
+import Text from 'components/Text';
 import { MyPokemonProvider } from 'context/pokemon';
+import { useTranslation } from 'hooks';
 import theme from 'themes';
 
 const urqlClient = createClient({
@@ -21,13 +23,19 @@ const PokemonDetailPage = React.lazy(() => import('pages/PokemonDetail'));
 const PokemonListPage = React.lazy(() => import('pages/PokemonList'));
 
 const App: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
-    <MyPokemonProvider>
-      <ThemeProvider theme={theme}>
-        <UrqlProvider value={urqlClient}>
+    <ThemeProvider theme={theme}>
+      <UrqlProvider value={urqlClient}>
+        <MyPokemonProvider>
           <Router>
             <Header />
-            <React.Suspense fallback={<p>Loading...</p>}>
+            <React.Suspense
+              fallback={
+                <Text textAlign="center">{t('common.state.loading')}</Text>
+              }
+            >
               <Switch>
                 <Route component={PokemonListPage} exact path="/" />
                 <Route component={MyPokemonPage} exact path="/mypokemon" />
@@ -39,9 +47,9 @@ const App: React.FC = () => {
               </Switch>
             </React.Suspense>
           </Router>
-        </UrqlProvider>
-      </ThemeProvider>
-    </MyPokemonProvider>
+        </MyPokemonProvider>
+      </UrqlProvider>
+    </ThemeProvider>
   );
 };
 

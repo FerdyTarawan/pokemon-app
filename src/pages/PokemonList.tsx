@@ -1,12 +1,18 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useQuery } from 'urql';
 
+import Box from 'components/Box';
+import Button from 'components/Button';
+import Card from 'components/Card';
+import Image from 'components/Image';
+import Text from 'components/Text';
 import {
   GET_POKEMON_LIST,
   PokemonListData,
   PokemonListVariable,
   Pokemons,
 } from 'graphql/query';
+import { capitalizeFirstLetter } from 'helpers/text';
 import {
   useImmutableState,
   useMyPokemon,
@@ -25,7 +31,7 @@ const PokemonListPage: React.FC = () => {
     queryVariable,
     setQueryVariable,
   ] = useImmutableState<PokemonListVariable>({
-    limit: 20,
+    limit: 12,
     offset: 0,
   });
 
@@ -65,32 +71,40 @@ const PokemonListPage: React.FC = () => {
   );
 
   if (isLoading && pokemons.length === 0) {
-    return <p>{t('common.state.loading')}</p>;
+    return <Text textAlign="center">{t('common.state.loading')}</Text>;
   }
 
   return (
-    <div>
-      {pokemons.map((pokemon) => (
-        <div
-          key={pokemon.id}
-          onClick={handlePokemonDetail(pokemon.name)}
-          style={{
-            border: '1px #f2f2f2 solid',
-            display: 'flex',
-            flexDirection: 'row',
-          }}
-        >
-          <img alt="image" src={pokemon.image} />
-          <p>{pokemon.name}</p> &nbsp;
-          <p>{`Owned: ${myPokemon.counts[pokemon.name] ?? 0}`}</p>
-        </div>
-      ))}
-      {isLastPage ? (
-        <p>No more Pokemon!!</p>
-      ) : (
-        <button onClick={handleLoadMore}>{t('common.actions.loadMore')}</button>
-      )}
-    </div>
+    <Box alignItems="center">
+      <Box alignItems="center" width={[1, 1, 1, 3 / 4]}>
+        <Box flexDirection="row" flexWrap="wrap">
+          {pokemons.map((pokemon) => (
+            <Box key={pokemon.id} p={3} width={[1, 1 / 2, 1 / 3, 1 / 4]}>
+              <Card
+                flexDirection="row"
+                onClick={handlePokemonDetail(pokemon.name)}
+                style={{ cursor: 'pointer' }}
+              >
+                <Image alt={pokemon.name} src={pokemon.image} />
+                <Box>
+                  <Text fontWeight="medium">
+                    {capitalizeFirstLetter(pokemon.name)}
+                  </Text>{' '}
+                  <Text mt={-1}>{`${t('common.terms.owned')}: ${
+                    myPokemon.counts[pokemon.name] ?? 0
+                  }`}</Text>
+                </Box>
+              </Card>
+            </Box>
+          ))}
+        </Box>
+        {!isLastPage && (
+          <Button my={2} onClick={handleLoadMore} width={200}>
+            {t('common.actions.loadMore')}
+          </Button>
+        )}
+      </Box>
+    </Box>
   );
 };
 

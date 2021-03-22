@@ -1,6 +1,6 @@
 import { Theme } from 'styled-system';
 
-const breakpoints = ['480px', '960px', '1920px'];
+const breakpoints = ['480px', '960px', '1366px', '1920px'];
 const colors = {
   black: '#000000',
   blue: '#007bc1',

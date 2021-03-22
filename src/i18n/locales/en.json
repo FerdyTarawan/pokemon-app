@@ -1,19 +1,25 @@
 {
   "common": {
-      "actions": {
-          "loadMore": "Load More"
-      },
-      "state": {
-          "loading": "Loading..."
-      },
-      "terms": {
-          "name": "Name",
-          "nickname": "Nickname",
-          "owned": "Owned"
-      }
+    "actions": {
+      "catch": "Catch this Pokemon",
+      "loadMore": "Load More",
+      "release": "Release"
+    },
+    "state": {
+      "empty": "You don't have any pokemon yet...",
+      "loading": "Loading..."
+    },
+    "terms": {
+      "ability": "Ability",
+      "move": "Move",
+      "name": "Name",
+      "nickname": "Nickname",
+      "owned": "Owned",
+      "type": "Type"
+    }
   },
   "menu": {
-      "pokemonList": "Pokemon List",
-      "myPokemon": "My Pokemon"
+    "pokemonList": "Pokemon List",
+    "myPokemon": "My Pokemon"
   }
 }
