@@ -1,0 +1,19 @@
+{
+  "common": {
+      "actions": {
+          "loadMore": "Load More"
+      },
+      "state": {
+          "loading": "Loading..."
+      },
+      "terms": {
+          "name": "Name",
+          "nickname": "Nickname",
+          "owned": "Owned"
+      }
+  },
+  "menu": {
+      "pokemonList": "Pokemon List",
+      "myPokemon": "My Pokemon"
+  }
+}
