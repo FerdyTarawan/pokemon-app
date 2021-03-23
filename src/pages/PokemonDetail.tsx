@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { useQuery } from 'urql';
 
-import OpenedPokeball from 'assets/opened-pokeball.png';
+import OpenedPokeball from 'assets/opened-pokeball-min.png';
 import { ReactComponent as Pokeball } from 'assets/pokeball.svg';
 import Box from 'components/Box';
 import Button from 'components/Button';
