@@ -41,6 +41,7 @@ const PokemonListPage: React.FC = () => {
   });
 
   const isLoading = result.fetching;
+  const isError = result.error;
   const [isLastPage, toggleLastPage] = useToggle(false);
 
   useEffect(() => {
@@ -71,7 +72,17 @@ const PokemonListPage: React.FC = () => {
   );
 
   if (isLoading && pokemons.length === 0) {
-    return <Text textAlign="center">{t('common.state.loading')}</Text>;
+    return (
+      <Text mt={5} textAlign="center">
+        {t('common.state.loading')}
+      </Text>
+    );
+  } else if (isError) {
+    return (
+      <Text mt={5} textAlign="center">
+        {t('common.state.error')}
+      </Text>
+    );
   }
 
   return (
@@ -81,6 +92,7 @@ const PokemonListPage: React.FC = () => {
           {pokemons.map((pokemon) => (
             <Box key={pokemon.id} p={3} width={[1, 1 / 2, 1 / 3, 1 / 4]}>
               <Card
+                key={pokemon.id}
                 flexDirection="row"
                 onClick={handlePokemonDetail(pokemon.name)}
                 style={{ cursor: 'pointer' }}

@@ -3,10 +3,14 @@
     "actions": {
       "catch": "Catch this Pokemon",
       "loadMore": "Load More",
-      "release": "Release"
+      "release": "Release",
+      "save": "Save"
     },
     "state": {
+      "catchSuccess": "You successfully catch {{name}}, give it a nickname!",
+      "catchFailure": "{{name}} managed to broke free!",
       "empty": "You don't have any pokemon yet...",
+      "error": "Cannot load data...",
       "loading": "Loading..."
     },
     "terms": {
@@ -17,6 +21,9 @@
       "owned": "Owned",
       "type": "Type"
     }
+  },
+  "error": {
+    "nicknameInvalid": "Nickname is not valid"
   },
   "menu": {
     "pokemonList": "Pokemon List",
