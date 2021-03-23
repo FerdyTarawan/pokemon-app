@@ -26,7 +26,7 @@ const MyPokemonPage: React.FC = () => {
         >
           {pokemons?.map((pokemon) => (
             <Box key={pokemon.id} p={3}>
-              <Card key={pokemon.id} alignItems="center" p={3}>
+              <Card alignItems="center" p={3}>
                 <Image
                   alt="image"
                   height={200}

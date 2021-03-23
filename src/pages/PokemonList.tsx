@@ -92,7 +92,6 @@ const PokemonListPage: React.FC = () => {
           {pokemons.map((pokemon) => (
             <Box key={pokemon.id} p={3} width={[1, 1 / 2, 1 / 3, 1 / 4]}>
               <Card
-                key={pokemon.id}
                 flexDirection="row"
                 onClick={handlePokemonDetail(pokemon.name)}
                 style={{ cursor: 'pointer' }}
