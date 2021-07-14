@@ -1,5 +1,17 @@
 Live version: https://pokemon-app-hazel.vercel.app/
 
+Tech used in this project:
+- [React with hooks](https://reactjs.org/docs/hooks-intro.html)
+- [Context API](https://reactjs.org/docs/context.html)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Urql](https://formidable.com/open-source/urql/)
+- [Immer](https://immerjs.github.io/immer/)
+- [react-router](https://reactrouter.com/)
+- [react-i18next](https://react.i18next.com/)
+- [Emotion](https://emotion.sh/docs/introduction)
+- [Styled system](https://styled-system.com/)
+- [Framer motion](https://www.framer.com/motion/)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
